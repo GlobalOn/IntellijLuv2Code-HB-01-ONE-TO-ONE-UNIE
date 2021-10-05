@@ -16,7 +16,7 @@ public class UpdateStudentDemo {
         //create session
         Session session = sessionFactory.getCurrentSession();
 
-        int studentId = 7;
+        int studentId = 5;
 
         try {
             //UPDATE STUDENT FROM DATABASE:
