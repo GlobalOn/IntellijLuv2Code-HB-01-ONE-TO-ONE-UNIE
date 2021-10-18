@@ -7,8 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "instructor")
@@ -24,6 +27,9 @@ public class Instructor {
     private String lastName;
     @Column(name = "email")
     private String email;
+
+    @OneToMany(mappedBy = "instructor", cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH})
+    private List<Course> courses;
 
     //Set up mapping to instructorDetail entity
     @OneToOne(cascade = CascadeType.ALL)
@@ -79,6 +85,14 @@ public class Instructor {
         this.instructorDetail = instructorDetail;
     }
 
+    public List<Course> getCourse() {
+        return courses;
+    }
+
+    public void setCourse(List<Course> courses) {
+        this.courses = courses;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -88,4 +102,14 @@ public class Instructor {
                 ", email='" + email + '\'' +
                 '}';
     }
+
+    //add convenience method for bi-directional relationship
+    public void add(Course course) {
+        if (courses == null) {
+            courses = new ArrayList<>();
+        }
+        courses.add(course);
+        course.setInstructor(this);
+    }
 }
+

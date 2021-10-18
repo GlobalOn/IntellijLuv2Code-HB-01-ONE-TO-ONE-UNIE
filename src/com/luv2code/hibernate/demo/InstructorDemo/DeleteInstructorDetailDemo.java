@@ -11,7 +11,7 @@ public class DeleteInstructorDetailDemo {
 
         //create session factory
         SessionFactory sessionFactory = new Configuration().
-                configure("hibernate-one-to-one.cfg.xml").
+                configure("hibernate-one-to-many.cfg.xml").
                 addAnnotatedClass(Instructor.class).
                 addAnnotatedClass(InstructorDetail.class).
                 buildSessionFactory();
