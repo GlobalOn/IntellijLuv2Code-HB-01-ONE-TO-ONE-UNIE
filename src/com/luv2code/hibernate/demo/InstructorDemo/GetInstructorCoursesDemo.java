@@ -1,12 +1,13 @@
 package com.luv2code.hibernate.demo.InstructorDemo;
 
+import com.luv2code.hibernate.demo.entity.Course;
 import com.luv2code.hibernate.demo.entity.Instructor;
 import com.luv2code.hibernate.demo.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class GetInstructorDetailDemo {
+public class GetInstructorCoursesDemo {
     public static void main(String[] args) {
 
         //create session factory
@@ -14,32 +15,24 @@ public class GetInstructorDetailDemo {
                 configure("hibernate-one-to-many.cfg.xml").
                 addAnnotatedClass(Instructor.class).
                 addAnnotatedClass(InstructorDetail.class).
+                addAnnotatedClass(Course.class).
                 buildSessionFactory();
         //create session
-        Session session = sessionFactory.getCurrentSession();
 
-
-        try {
-            //Start a transaction
+        try (sessionFactory; Session session = sessionFactory.getCurrentSession()) {
             session.beginTransaction();
 
-            //Get the instructorDetail by id
-            InstructorDetail instructorDetail = session.get(InstructorDetail.class, 2);
+            int theId = 1;
 
-            System.out.println("InstructorDetail = " + instructorDetail);
+            //get the instructor from DB
+            Instructor instructor = session.get(Instructor.class, theId);
 
-            //Print Associated Instructor
-            System.out.println(instructorDetail.getInstructor());
+            //Get course for instructor
+            System.out.println(instructor.getCourse());
 
             //commit transaction
             session.getTransaction().commit();
             System.out.println("Done!");
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        } finally {
-            //handle connection leak issue (close the session)
-            session.close();
-            sessionFactory.close();
         }
     }
 }
