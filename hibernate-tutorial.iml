@@ -5,12 +5,14 @@
       <configuration>
         <datasource-map>
           <unit-entry name="hibernate-employee.cfg.xml" value="a83c1079-d3c2-4df7-9d69-2a19ffd0f37a" />
+          <unit-entry name="hibernate-one-to-many-uni.cfg.xml" />
           <unit-entry name="hibernate-one-to-many.cfg.xml" />
           <unit-entry name="hibernate-student.cfg.xml" value="6d955c1f-ca6c-4918-b07f-c8d5f7285c4c" />
           <unit-entry name="hibernate.cfg.xml" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate-employee.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate-many-to-many-uni.cfg.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate-one-to-many-uni.cfg.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate-one-to-many.cfg.xml" />
       </configuration>
