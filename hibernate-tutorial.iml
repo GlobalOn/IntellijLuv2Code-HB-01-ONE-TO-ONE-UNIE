@@ -5,12 +5,15 @@
       <configuration>
         <datasource-map>
           <unit-entry name="hibernate-employee.cfg.xml" value="a83c1079-d3c2-4df7-9d69-2a19ffd0f37a" />
-          <unit-entry name="hibernate-one-to-many.cfg.xml" />
+          <unit-entry name="hibernate-many-to-many-uni.cfg.xml" value="d8f3480c-99d8-45ee-ab7c-c71eed6c5a4a" />
+          <unit-entry name="hibernate-one-to-many-uni.cfg.xml" value="1644c6fe-03be-423d-8040-e34bb4611447" />
+          <unit-entry name="hibernate-one-to-many.cfg.xml" value="c2cbb712-4c45-409f-bf81-c3c993e48c6e" />
           <unit-entry name="hibernate-student.cfg.xml" value="6d955c1f-ca6c-4918-b07f-c8d5f7285c4c" />
           <unit-entry name="hibernate.cfg.xml" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate-employee.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate-many-to-many.cfg.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate-one-to-many-uni.cfg.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate-one-to-many.cfg.xml" />
       </configuration>
